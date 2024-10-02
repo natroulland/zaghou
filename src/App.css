@@ -1,0 +1,39 @@
+.card {
+  button{
+    margin: 1em;
+  }
+}
+
+.result{
+  display:flex;
+  flex-direction:row;
+}
+
+.arrow{
+  padding-top: 255px;
+}
+
+.wheel {
+  position: relative; /* Ensure the pseudo-element is positioned relative to the .result element */
+  padding: 1em;
+  font-size: 1em;
+  font-weight: 500;
+  height:480px;
+  width:480px;
+  font-family: inherit;
+  overflow: hidden; /* Hide overflow to ensure the rotated image doesn't exceed the boundaries */
+}
+
+.wheel::before {
+  content: "";
+  position: absolute;
+  margin:10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("roulette.png");
+  background-size: cover;
+  transform: rotate(var(--rotation, 0deg)); /* Utilise la variable CSS pour la rotation */
+  transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transition fluide de 1 seconde */
+}
