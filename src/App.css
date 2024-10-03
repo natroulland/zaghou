@@ -32,7 +32,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("roulette.png");
   background-size: cover;
   transform: rotate(var(--rotation, 0deg)); /* Utilise la variable CSS pour la rotation */
   transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transition fluide de 1 seconde */

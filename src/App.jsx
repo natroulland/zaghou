@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Header } from './components/header'
 import './App.css'
+import roulette from '../roulette.png'
 
 function App() {
     const numbers = [22, 9, 31, 14, 20, 1, 33, 16, 24, 5, 10, 23, 8, 30, 11, 36, 13, 27, 6, 34, 17, 25, 2, 21, 4, 19, 15, 32, 0, 26, 3, 35, 12, 28, 7, 29, 18]
@@ -9,6 +10,19 @@ function App() {
     const [money, setMoney] = useState(15)
     const [b, setB] = useState(5)
     const [rotation, setRotation] = useState(0) // État pour l'angle de rotation
+
+    const wheelStyle = {
+        backgroundImage: `url(${roulette})`,
+        backgroundSize: 'cover',
+        transform: `rotate(${rotation}deg)`,
+        transition: 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)',
+        margin: '10px',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        content: '""'
+    };
 
     function bet(x) {
         if (money < b) {
@@ -42,7 +56,8 @@ function App() {
                 <div className="arrow">
                     ==>
                 </div>
-                <div className="wheel" style={{ '--rotation': `${rotation}deg` }}></div>
+                <div className="wheel" style={ wheelStyle}>
+                </div>
             </div>
 
             <div className="card">
